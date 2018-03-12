@@ -1,0 +1,15 @@
+server:
+  port: 8020
+
+#eureka的相关配置
+#注册到Eureka Server上的应用名称
+spring:
+  application:
+    name: microservice-consumer-movie-ribbon-hystrix-streamtext
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+#表示将自己的ip注册到Eureka Server上
+  instance:
+    prefer-ip-address: true

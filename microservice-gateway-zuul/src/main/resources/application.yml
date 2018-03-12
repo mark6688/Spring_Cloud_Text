@@ -1,0 +1,29 @@
+server:
+  port: 5555
+eureka:
+  client:
+    service-url:
+      defaultZone: http://yunshi:yunshi123456@localhost:1111/eureka/
+spring:
+  application:
+    name: api-gateway-zuul
+zuul.host.max-per-route-connections: 20
+zuul.host.max-total-connections: 200
+
+zuul.host.socket-timeout-millis: 60000
+zuul.host.connect-timeout-millis: 60000
+hystrix.command.default.execution.isolation.thread.timeoutInMilliseconds: 60000
+
+ribbon.ConnectTimeout: 30000
+ribbon.ReadTimeout: 60000
+
+zuul.AccessFilter.pre.disable: true
+
+zuul.routes.api-a.path: /YSIDText/**
+zuul.routes.api-a.serviceId: YSIDText
+zuul.routes.api-b.path: /YSIDKnowledge/**
+zuul.routes.api-b.serviceId: YSIDKnowledge
+zuul.routes.api-c.path: /YSIDImage/**
+zuul.routes.api-c.serviceId: YSIDImage
+zuul.routes.api-d.path: /YSISInfo/**
+zuul.routes.api-d.serviceId: YSISInfo
